@@ -11,4 +11,10 @@ function my_theme_enqueue_styles() {
     );
 }
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
-?>
+
+
+function custom_rewrite_basic() {
+  // add_rewrite_rule('^leaf/([0-9]+)/?', 'index.php?page_id=$matches[1]', 'top');
+    add_rewrite_rule('^ness/(.+)', '$matches[1]', 'top');
+}
+add_action('init', 'custom_rewrite_basic');
